@@ -1,62 +1,44 @@
 import { useState } from "react";
+import Background from "./components/Background";
+import CursorGlow from "./components/CursorGlow";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
-function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-
-    alert("Message sent!");
-  };
+function App() {
+  const [theme, setTheme] = useState("dark");
 
   return (
-    <div id="contact" className="p-10 bg-black text-white text-center">
-      <h2 className="text-3xl mb-6">Contact Me</h2>
+    <>
+      <Background theme={theme} />
+      <CursorGlow />
 
-      <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
-        <input
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-          className="w-full p-2 text-black"
-        />
+      <button
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className="fixed top-5 right-5 z-[999] px-4 py-2 rounded-xl bg-black/70 text-white border border-white/20"
+      >
+        {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+      </button>
 
-        <input
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          className="w-full p-2 text-black"
-        />
-
-        <textarea
-          name="message"
-          placeholder="Message"
-          onChange={handleChange}
-          className="w-full p-2 text-black"
-        />
-
-        <button className="bg-purple-500 px-6 py-2 rounded">
-          Send
-        </button>
-      </form>
-    </div>
+      <div
+  className={
+    theme === "dark"
+      ? "text-white"
+      : "text-pink-500"
+  }
+>
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </div>
+    </>
   );
 }
 
-export default Contact;
+export default App;

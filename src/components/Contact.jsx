@@ -1,4 +1,3 @@
-<div id="contact" className="min-h-screen p-10 bg-black text-white text-center"
 import { useState } from "react";
 
 function Contact() {
@@ -27,7 +26,7 @@ function Contact() {
   };
 
   return (
-    <div id="contact" className="p-10 bg-black text-white text-center">
+    <div id="contact" className="bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text">
       <h2 className="text-3xl mb-6">Contact Me</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
@@ -60,3 +59,4 @@ function Contact() {
   );
 }
 
+export default Contact;

@@ -26,7 +26,7 @@ function Navbar() {
     active === id ? "text-purple-400" : "text-white";
 
   return (
-    <div className="fixed top-0 w-full bg-black text-white p-4 flex justify-center space-x-6 z-50">
+    <div className="fixed top-0 w-full bg-transparent text-white p-4 flex justify-center space-x-6 z-50">
       <a href="#home" className={linkStyle("home")}>Home</a>
       <a href="#about" className={linkStyle("about")}>About</a>
       <a href="#projects" className={linkStyle("projects")}>Projects</a>
