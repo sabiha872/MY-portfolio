@@ -47,7 +47,7 @@ function Hero() {
   </a>
 
   <a
-    href="/resume.pdf"
+    href="https://github.com/sabiha872/my-resume"
     download
     className="min-w-[135px] px-6 py-3 rounded-xl bg-white/10 border border-white/20 hover:border-purple-400 hover:shadow-[0_0_18px_rgba(168,85,247,0.5)] transition text-center"
   >
